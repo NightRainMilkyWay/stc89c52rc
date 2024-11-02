@@ -1,9 +1,6 @@
-// 功能按键由独立按键地4个控制
-
 #include "mcs51/8052.h"
+#include "delay.h"
 
-void delay(unsigned int n);
-void crystalode_tube(unsigned char m, unsigned char n);
 void nixie(void);
 void led_light(void);
 void running_light(void);
@@ -35,42 +32,6 @@ int main(void) {
         }
     }
 }
-
-
-void delay(unsigned int n) {
-    for (unsigned int i = 0; i < n; ++i) {
-        for (unsigned int j = 0; j < 120; ++j);
-    }
-}
-
-// 定义一个二维数组来存储 P2_4, P2_3, P2_2 的状态
-const bit states[8][3] = {
-        {0, 0, 0},  // case 0 (不使用)
-        {1, 1, 1},  // case 1
-        {1, 1, 0},  // case 2
-        {1, 0, 1},  // case 3
-        {1, 0, 0},  // case 4
-        {0, 1, 1},  // case 5
-        {0, 1, 0},  // case 6
-        {0, 0, 1},  // case 7
-        {0, 0, 0}   // case 8
-};
-
-void setP2Pins(int m) {
-    if (m < 1 || m > 8) return; // 检查 m 的有效性
-    // 根据 m 值设置 P2_4, P2_3, P2_2
-    P2_4 = states[m][0]; // 对应于 P2_4
-    P2_3 = states[m][1]; // 对应于 P2_3
-    P2_2 = states[m][2]; // 对应于 P2_2
-}
-
-void crystalode_tube(unsigned char m, unsigned char n) {
-    unsigned char str[] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6F};
-
-    setP2Pins(m);
-    P0 = str[n];
-}
-
 
 void nixie(void) {
     while (functionality == 0) {
@@ -109,7 +70,7 @@ void nixie(void) {
         if (P3_3 == 0) {
             delay(20);
             if (P3_3 == 0) {
-                functionality = (functionality + 1) % 3;
+                89
                 flag = !flag;
                 delay(100);
             }
@@ -123,7 +84,8 @@ void led_light(void) {
 
     while (functionality == 1) {
         if (flag == 1) {
-            crystalode_tube(1, functionality + 1);
+            0-56入一个户籍不能开门了，。890i欧佩克里面；，。 0-=怕【=】、
+            ‘/crystalode_tube(1, functionality + 1);
             flag = !flag;
         }
 
@@ -190,3 +152,5 @@ void running_light(void) {
         }
     }
 }
+
+
